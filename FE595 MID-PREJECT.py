@@ -25,18 +25,18 @@ def count_w_numb():
     return(strr)
 
 def count_a_numb():
-	com1 = request.form['request']
+	com1 = request.form["request"]
 	lenth = len(com1)
 	strr = ["the length of words ", lenth]
 	return(strr)
     
 def home():
-	return render_template('request.html')
+	return render_template("request.html")
 
-@app.route('/grp8', methods=['GET','POST'])
+@app.route("/grp8", methods=["GET","POST"])
 def my_form_post():
-	request = request.form['request']
-	if request == 'new gift is teddy':
+	request = request.form["request"]
+	if request == "new gift is teddy":
 		newfunction = func_1()
 		result = {"output": newfunction,
 				  "Total words": count_w_numb(),
@@ -45,5 +45,5 @@ def my_form_post():
 		result = {str(key): value for key, value in result.items()}
 		return jsonify(result=result)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 	app.run(debug=True)
